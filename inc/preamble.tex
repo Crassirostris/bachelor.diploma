@@ -1,0 +1,94 @@
+\usepackage[T2A]{fontenc}           % Font encoding
+\usepackage[utf8]{inputenc}         % Input encoding
+\usepackage[english,russian]{babel} % Typography for English and Russian languages
+%\usepackage{mathptmx}               % Font
+
+\usepackage[dvips]{graphicx}        % Including graphics
+\graphicspath{{images/}}
+
+\usepackage{amssymb}                % Mathematics
+\usepackage{amsfonts}               % Mathematics
+\usepackage{amsmath}                % Mathematics
+
+% Margins according to GOST
+\usepackage[top=20mm, bottom=25mm, left=30mm, right=10mm]{geometry}
+
+\usepackage{listings} % Listings formatting
+\lstset{
+    basicstyle=\small\ttfamily,
+    breaklines=true,
+    tabsize=2
+}
+
+\usepackage{indentfirst}            % First paragraph intendation
+
+\usepackage{hyperref}               % References
+\hypersetup{
+    colorlinks, urlcolor={black},
+    linkcolor={black}, citecolor={black}, filecolor={black},
+    pdfauthor={Mikhail Vyatskov},
+    pdftitle={Distributed Full-Text Search Indexes Builders Engine}
+}
+
+% Internal changes for bibliography
+\makeatletter
+\renewcommand*{\@biblabel}[1]{\hfill#1.}
+\renewcommand*\l@section{\@dottedtocline{1}{1em}{1em}}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\def\redeflsection{\def\l@section{\@dottedtocline{1}{0em}{10em}}}
+\makeatother
+
+\renewcommand{\baselinestretch}{1.4} % 1.5 interval
+\parindent 1.27cm
+
+% Table of Contents
+\usepackage{tocloft}
+\addto\captionsrussian{\renewcommand{\contentsname}{Оглавление}}
+\renewcommand{\cfttoctitlefont}{\hspace{0.38\textwidth}\bfseries\MakeTextUppercase}
+\renewcommand{\cftdot}{}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+
+% Page numbering
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead{}
+\fancyhead[C]{\textrm{\thepage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Section captions are uppercase
+\usepackage{textcase}
+
+% Anonymus sections
+\newcommand{\anonsection}[1]{
+    \phantomsection
+    \section*{#1}
+    \addcontentsline{toc}{section}{#1}
+}
+
+% Sections for appendixes
+\newcommand{\appsection}[1]{
+    \phantomsection
+    \section*{#1}
+    \addcontentsline{toc}{section}{#1}
+}
+
+% Bibliography
+\makeatletter
+\renewenvironment{thebibliography}[1]
+    {
+        \list{\@biblabel{\@arabic\c@enumiv}}
+           {\settowidth\labelwidth{\@biblabel{#1}}
+            \leftmargin\labelsep
+            \itemindent 16.7mm
+            \@openbib@code
+            \usecounter{enumiv}
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}
+        }
+        \setlength{\itemsep}{0pt}
+    }
+\makeatother
