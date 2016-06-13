@@ -2,6 +2,9 @@
 \usepackage[utf8]{inputenc}         % Input encoding
 \usepackage[english,russian]{babel} % Typography for English and Russian languages
 
+%\pdfpkmode{dpdfezzz}
+%\pdfpkresolution=8000
+
 \usepackage[dvips]{graphicx}        % Including graphics
 \graphicspath{{images/}}
 
@@ -93,3 +96,12 @@
 \makeatother
 
 \newtheorem{theorem}{Теорема}
+
+\usepackage{chngcntr}
+\counterwithout{figure}{section}
+
+\usepackage{caption}
+\DeclareCaptionLabelSeparator{comma}{, }
+\usepackage[labelsep=comma]{caption}
+
+\usepackage{subcaption}
