@@ -48,9 +48,12 @@
 \usepackage{tocloft}
 \addto\captionsrussian{\renewcommand{\contentsname}{Оглавление}}
 \renewcommand{\cfttoctitlefont}{\hspace{0.38\textwidth}\bfseries\MakeTextUppercase}
+\renewcommand*\cftsecnumwidth{4em}
 \renewcommand{\cftdot}{}
 \renewcommand{\cftsecfont}{\normalfont}
 \renewcommand{\cftsecpagefont}{\normalfont}
+
+\setcounter{tocdepth}{1}
 
 % Page numbering
 \usepackage{fancyhdr}
@@ -107,3 +110,5 @@
 \usepackage{subcaption}
 
 \sloppy
+
+\renewcommand{\thesection}{Глава \arabic{section}.}
